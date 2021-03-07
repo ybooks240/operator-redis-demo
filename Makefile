@@ -1,6 +1,6 @@
 
 # Image URL to use all building/pushing image targets
-IMG ?= controller:latest
+IMG ?= controller:v0.0.1
 # Produce CRDs that work back to Kubernetes 1.11 (no version conversion)
 CRD_OPTIONS ?= "crd:trivialVersions=true"
 
@@ -59,9 +59,11 @@ docker-build: test
 	docker build . -t ${IMG}
 
 # Push the docker image
-docker-push:
+docker-push: docker-login
 	docker push ${IMG}
 
+docker-login:
+	docker login --username ybooks -p ${DOCKER_TOKEN}
 # find or download controller-gen
 # download controller-gen if necessary
 controller-gen:
