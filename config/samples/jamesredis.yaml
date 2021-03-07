@@ -1,0 +1,8 @@
+apiVersion: dev.ybooks240.github.com/v1
+kind: JamesRedis
+metadata:
+  name: jamesredis
+spec:
+  replicas: 1
+  image: redis:5.0.4
+  config_map_name: redis-config

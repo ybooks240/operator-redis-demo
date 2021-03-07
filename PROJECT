@@ -1,0 +1,10 @@
+domain: ybooks240.github.com
+repo: github.com/ybooks240
+resources:
+- group: dev
+  kind: James-redis
+  version: v1
+- group: dev
+  kind: JamesRedis
+  version: v1
+version: "2"
